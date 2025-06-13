@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Thư mời lễ tốt nghiệp</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #d3cce3, #e9e4f0);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #form,
+        #invitation {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        #form h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e0c200;
+        }
+
+        #invitation {
+            display: none;
+        }
+
+        .highlight {
+            color: #DAA520;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 26px;
+            background: linear-gradient(45deg, #FFD700, #DAA520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        img {
+            margin: 10px 0;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 480px) {
+            input[type="text"] {
+                width: 100%;
+            }
+
+            #form,
+            #invitation {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .highlight {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="form">
+        <h2>Nhập tên của bạn:</h2>
+        <input type="text" id="nameInput" placeholder="Ví dụ: VIỆT">
+        <br>
+        <button onclick="generateInvitation()">Xem thư mời</button>
+    </div>
+
+    <div id="invitation">
+        <h3 style="margin-bottom: 10px;">THƯ MỜI</h3>
+        <h2 class="highlight">LỄ TỐT NGHIỆP</h2>
+        <img src="images/logott.png" alt="Graduation Cap" width="150">
+        <h1>NGUYỄN ĐỨC VIỆT</h1>
+        <p style="font-weight: bold;">THÂN MỜI <span id="invitedText">BẠN</span> ĐẾN DỰ LỄ TỐT NGHIỆP</p>
+        <p>
+            📍 Địa điểm: Đại học Duy Tân, 03 Quang Trung, TP. Đà Nẵng <br><br>
+            📞 Liên hệ: 0707463127
+        </p>
+    </div>
+
+    <script>
+        function generateInvitation() {
+            const name = document.getElementById("nameInput").value.trim();
+            if (name === "") {
+                alert("Vui lòng nhập tên của bạn.");
+                return;
+            }
+
+            document.getElementById("invitedText").innerText = name.toUpperCase();
+
+            document.getElementById("form").style.display = "none";
+            document.getElementById("invitation").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>
